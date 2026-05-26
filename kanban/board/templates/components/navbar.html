@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg shadow-sm {{ 'bg-dark navbar-dark' if dark_mode else 'bg-light' }}">
+    <div class="container-fluid">
+        <div class="d-flex gap-2 align-items-center">
+            {# sidebar toggle #}
+            <button class="btn {{ 'btn-dark' if dark_mode else 'btn-light' }}">
+                <i class="bi bi-layout-text-sidebar"></i>
+            </button>
+
+            <div class="vr {{ 'text-white' if dark_mode }}"></div>
+            {# project logo #}
+            <a class="navbar-brand fw-bold px-2" href="#">
+                <i class="bi bi-box me-1"></i> Project Name
+            </a>
+        </div>
+
+        <div class="d-flex gap-1 align-items-center">
+            {# theme toggle #}
+            <a class="btn {{ 'btn-dark' if dark_mode else 'btn-light' }} rounded-3"
+               title='switch to {{ 'light' if dark_mode else 'dark' }} theme'
+               href="{{ url_for('kanban.toggle_theme') }}">
+                <i class="bi {{ 'bi-moon' if dark_mode else 'bi-sun' }}"></i>
+            </a>
+
+            {# search bar #}
+            <input type="search" class="form-control rounded-3" placeholder="Search" aria-label="search">
+
+            {# 'create' button #}
+            <div class="dropdown">
+                <button class="btn {{ 'btn-dark' if dark_mode else 'btn-light' }} dropdown-toggle no-caret rounded-3"
+                        data-bs-toggle="dropdown"><i class="bi bi-plus-lg"></i>
+                </button>
+
+                <ul class="dropdown-menu dropdown-menu-end rounded-3 overflow-hidden p-2">
+                    <li><a class="dropdown-item rounded-1">Board</a></li>
+                </ul>
+            </div>
+
+            {# user drop down menu #}
+            <div class="dropdown">
+                <button class="btn {{ 'btn-dark' if dark_mode else 'btn-light' }} dropdown-toggle no-caret rounded-3"
+                        data-bs-toggle="dropdown"><i class="bi bi-person"></i>
+                </button>
+
+                <ul class="dropdown-menu dropdown-menu-end rounded-3 overflow-hidden p-2">
+                    <li><span class="dropdown-header py-1"><span class="text-secondary">Signed in as </span> {{ g.display_name }}</span></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item rounded-1">Profile</a></li>
+                    <li><a class="dropdown-item rounded-1">Settings</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item text-decoration-none text-danger rounded-1"
+                           href="{{ url_for('auth.logout') }}"><i class="bi bi-box-arrow-right"></i>
+                            <span class="dropdown-toggle-split">Log Out</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

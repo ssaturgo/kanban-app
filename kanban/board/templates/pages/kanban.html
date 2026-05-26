@@ -1,0 +1,12 @@
+{% extends 'main_base.html' %}
+
+{% block content %}
+    <div class="d-flex h-100 w-100">
+        {#  make room for future sidebar  #}
+        <div class="d-flex flex-grow-1 flex-column vh-100">
+            {% include 'components/navbar.html' %}
+            {% include 'components/board.html' %}
+        </div>
+    </div>
+
+{% endblock %}

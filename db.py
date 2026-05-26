@@ -4,7 +4,6 @@ from datetime import datetime
 
 import click
 from flask import current_app, g
-from flask.cli import with_appcontext
 
 
 def get_db():
@@ -23,7 +22,7 @@ def load_db():
     get_db()
 
 
-def close_db(e=None):
+def close_db(_=None):
     db = g.pop('db', None)
     if db is not None:
         db.close()
@@ -39,9 +38,23 @@ def init_db():
         db.executescript(file.read())
 
 
+def add_admin():
+    from flask_bcrypt import generate_password_hash
+    command = 'INSERT INTO users (username, password_hash, display_name, created_at) VALUES (?,?,?,?)'
+    db = g.db
+    db.execute(command, (
+        'admin',
+        generate_password_hash('password'),
+        'admin',
+        datetime.now()
+    ))
+    db.commit()
+
+
 @click.command("init-db")
 def init_db_command():
     init_db()
+    add_admin()
     click.echo('Successfully initialized database.')
 
 
