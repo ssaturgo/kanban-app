@@ -20,9 +20,6 @@ def index():
 def update_task():
     data = request.json
 
-    # TODO
-    #   insert db logic here
-
     print(f'Server received: {data}')
     return jsonify({
         'status': 'success',
