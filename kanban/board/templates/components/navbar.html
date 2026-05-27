@@ -17,7 +17,7 @@
             {# theme toggle #}
             <a class="btn {{ 'btn-dark' if dark_mode else 'btn-light' }} rounded-3"
                title='switch to {{ 'light' if dark_mode else 'dark' }} theme'
-               href="{{ url_for('kanban.toggle_theme') }}">
+               href="{{ url_for('ui.toggle_theme') }}">
                 <i class="bi {{ 'bi-moon' if dark_mode else 'bi-sun' }}"></i>
             </a>
 
@@ -33,6 +33,13 @@
                 <ul class="dropdown-menu dropdown-menu-end rounded-3 overflow-hidden p-2">
                     <li><a class="dropdown-item rounded-1">Board</a></li>
                 </ul>
+            </div>
+
+            {# 'notifications' button #}
+            <div class="dropdown">
+                <button class="btn {{ 'btn-dark' if dark_mode else 'btn-light' }} dropdown-toggle no-caret rounded-3"
+                        data-bs-toggle="dropdown"><i class="bi bi-bell"></i>
+                </button>
             </div>
 
             {# user drop down menu #}

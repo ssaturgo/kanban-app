@@ -93,7 +93,7 @@ def login():
 
 @bp.route('/logout')
 def logout():
-    session.pop('user_id', None)
+    session.clear()
     flash('You have been successfully logged out.', 'success')
     return redirect(url_for('auth.login'))
 
@@ -108,8 +108,3 @@ def check_username():
     db = g.db
     user = db.execute('SELECT id FROM users WHERE username=?', (username,)).fetchone()
     return jsonify(available=(user is None))
-
-
-@bp.context_processor
-def inject_theme():
-    return dict(dark_mode=session.get('dark_mode', False))

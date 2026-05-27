@@ -1,5 +1,6 @@
 import os
-from flask import Flask, g
+from flask import Flask, g, session
+from kanban import ui
 from .auth.blueprints import auth
 from .board.blueprints import kanban
 import db
@@ -27,8 +28,13 @@ def create_app(config=None):
     db.init_app(app)
 
     # register blueprints
+    app.register_blueprint(ui.bp, url_prefix='/ui')
     app.register_blueprint(auth.bp, url_prefix='/auth')
     app.register_blueprint(kanban.bp, url_prefix='/kanban')
+
+    @app.context_processor
+    def inject_theme():
+        return dict(dark_mode=session.get('dark_mode', False))
 
     @app.route('/')
     def root():

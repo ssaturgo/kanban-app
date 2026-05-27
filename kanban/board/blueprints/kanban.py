@@ -9,7 +9,6 @@ bp = Blueprint('kanban', __name__,
                )
 
 
-# login page
 @login_required
 @bp.route('/')
 def index():
@@ -32,10 +31,6 @@ def toggle_theme():
     session['dark_mode'] = not session.get('dark_mode', False)
     return redirect(request.referrer)
 
-
-@bp.context_processor
-def inject_theme():
-    return dict(dark_mode=session.get('dark_mode', False))
 
 @bp.context_processor
 def inject_user():
