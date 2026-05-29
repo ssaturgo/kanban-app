@@ -1,12 +1,52 @@
 {% extends 'main_base.html' %}
 
-{% block content %}
-    <div class="d-flex h-100 w-100">
-        {#  make room for future sidebar  #}
-        <div class="d-flex flex-grow-1 flex-column vh-100">
-            {% include 'components/navbar.html' %}
-            {% include 'components/board.html' %}
+{% macro task_card(data) %}
+    {# TASK CARD #}
+    <div class="card border-0 rounded-3 shadow-sm mb-2 overflow-hidden scroll-item">
+        <div class="card-body">
+            {# tags #}
+            <div class="small d-flex flex-wrap gap-1 mb-2">
+                <span class="badge text-primary bg-primary-subtle">DESIGN</span>
+                <span class="badge text-warning bg-warning-subtle">URGENT</span>
+                <span class="badge text-secondary bg-secondary-subtle">+2</span>
+            </div>
+
+            {# title #}
+            <h6 class="card-title mb-1 text-truncate">Task Title</h6>
+
+            {# description #}
+            <div class="card-text small text-muted text-wrap text-break">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </div>
         </div>
     </div>
+{% endmacro %}
 
+{% block content %}
+    <div class="p-3 pt-1 overflow-x-auto overflow-y-hidden h-100 d-flex gap-5 kb-board" style="white-space: nowrap;">
+        {% for i in range(10) %}
+
+            <div class="flex-shrink-0 kb-column" style="width: 280px">
+                {# column headers #}
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <div class=""><i class="bi bi-grip-vertical text-secondary"></i></div>
+                        <div class="p-2">column name</div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a href="#" class="btn btn-link link-secondary p-1"><i class="bi bi-plus-square"></i></a>
+                        <a href="#" class="btn btn-link link-secondary p-1"><i class="bi bi-three-dots"></i></a>
+                    </div>
+                </div>
+
+                <div class="h-100 overflow-y-auto scroll-container">
+                    {% for i in range(15) %}
+                        {{ task_card() }}
+                    {% endfor %}
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
 {% endblock %}

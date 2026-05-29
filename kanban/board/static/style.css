@@ -7,3 +7,20 @@
     color: #ffffff !important;
     /*transition: background-color 0.1s, color 0.1s;*/
 }
+
+.kb-board {
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 1rem;
+}
+
+.kb-column {
+    scroll-snap-align: start;
+}
+
+.scroll-container {
+    scroll-snap-type: y mandatory;
+}
+
+.scroll-item {
+    scroll-snap-align: start;
+}

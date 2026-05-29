@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg shadow-sm {{ 'bg-dark navbar-dark' if dark_mode else 'bg-light' }}">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg {{ ' bg-dark navbar-dark' if dark_mode else 'bg-light' }}">
+    <div class="container-fluid px-2">
         <div class="d-flex gap-2 align-items-center">
             {# sidebar toggle #}
-            <button class="btn {{ 'btn-dark' if dark_mode else 'btn-light' }}">
+            <button data-bs-target="#sidebar" data-bs-toggle="collapse" class="btn {{ 'btn-dark' if dark_mode else 'btn-light' }}">
                 <i class="bi bi-layout-text-sidebar"></i>
             </button>
 
@@ -14,7 +14,7 @@
         </div>
 
         <div class="d-flex gap-1 align-items-center">
-            {# theme toggle #}
+            {# 'toggle theme' button #}
             <a class="btn {{ 'btn-dark' if dark_mode else 'btn-light' }} rounded-3"
                title='switch to {{ 'light' if dark_mode else 'dark' }} theme'
                href="{{ url_for('ui.toggle_theme') }}">
@@ -40,26 +40,6 @@
                 <button class="btn {{ 'btn-dark' if dark_mode else 'btn-light' }} dropdown-toggle no-caret rounded-3"
                         data-bs-toggle="dropdown"><i class="bi bi-bell"></i>
                 </button>
-            </div>
-
-            {# user drop down menu #}
-            <div class="dropdown">
-                <button class="btn {{ 'btn-dark' if dark_mode else 'btn-light' }} dropdown-toggle no-caret rounded-3"
-                        data-bs-toggle="dropdown"><i class="bi bi-person"></i>
-                </button>
-
-                <ul class="dropdown-menu dropdown-menu-end rounded-3 overflow-hidden p-2">
-                    <li><span class="dropdown-header py-1"><span class="text-secondary">Signed in as </span> {{ g.display_name }}</span></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item rounded-1">Profile</a></li>
-                    <li><a class="dropdown-item rounded-1">Settings</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li>
-                        <a class="dropdown-item text-decoration-none text-danger rounded-1"
-                           href="{{ url_for('auth.logout') }}"><i class="bi bi-box-arrow-right"></i>
-                            <span class="dropdown-toggle-split">Log Out</span></a>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>

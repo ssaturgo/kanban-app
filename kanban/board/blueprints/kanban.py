@@ -1,7 +1,7 @@
 from flask import (Blueprint, flash, redirect, render_template,
                    request, session, url_for, jsonify, g)
 
-from kanban.utilities import login_required
+from kanban.decorators import login_required
 
 bp = Blueprint('kanban', __name__,
                static_folder='../static',
@@ -26,12 +26,7 @@ def update_task():
     })
 
 
-@bp.route('/toggle-theme')
-def toggle_theme():
-    session['dark_mode'] = not session.get('dark_mode', False)
-    return redirect(request.referrer)
-
-
+# load in user's information
 @bp.context_processor
 def inject_user():
     command = 'SELECT display_name FROM users WHERE id=?'
