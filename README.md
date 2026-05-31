@@ -1,4 +1,4 @@
-# Kanban App - CS50X Final Project
+# Kanban App - CS50x Final Project
 #### Video Demo:  <URL HERE>
 #### Description:
 I chose to build this app as my final project for CS50x because I wanted an intuitive
@@ -53,6 +53,29 @@ that can hopefully bridge those gaps. (unfortunately this isn't it either)
 - **Frontend**
   - I used `Bootstrap` as a way to style my app.
   - I have also learned of other frameworks, but I decided to use bootstrap for its simplicity.
+  - JavaScript was very challenging to me because of it's syntax and the fact that my time with it was very limited.
+  - I found that my javascript was very difficult to read. In the future, I would like to learn more about
+    how to write clean code.
+
+- **Backend**
+  - I used `Flask` to manage the backend of my app.
+  - I really enjoyed Python as a language and also Flask once I learned about it.
+  - while I did have some challenges going back and forth from Python and JavaScript,
+    it was overall a fun and rewarding learning two languages at once.
+  - In the future I would like to separate the code for the backend and the frontend.
+  - One of the biggest problems was deciding whether something should be handled client side or server side.
+  - I think it will be much better if in the future I just make flask handle API requests only.
+  
+- **Git and project management**
+  - I used git to manage and track my project's changes.
+  - There are still a lot of features git offers that I haven't utilize and I look forward trying in the future.
+
+- **UI / UX**
+  - One of the topics I looked forward to learning about was UX design.
+  - I learned a lot about good design and intuitive UI.
+  - Learned about creating beautiful interfaces that guides the user visually.
+  - In the future, I would like to dive deeper in this area because I find that
+    this aspect is what I really enjoyed.
 
 ---
 
@@ -73,14 +96,30 @@ Missing features:
 ---
 
 #### Installation & Setup
+```bash
+# clone this repository
+git clone https://codeberg.org/ssaturgo/kanban-app
+cd kanban-app
 
-> *Detailed setup instructions will be added here.*  
-> Typical steps will include:
-> - Creating a virtual environment
-> - Installing dependencies (`pip install -r requirements.txt`)
-> - Initializing the database (`flask init-db`)
-> - Running the app (`flask run`)
-> - Accessing `http://127.0.0.1:5000`
+# create a virtual environment
+python3 -m venv .venv
+
+# activate virtual environment
+# - for windows
+.venv\Scripts\activate
+# - for linux and mac
+source .venv/bin/activate
+
+# install dependencies
+pip install -r requirements.txt
+
+# initialize db
+flask --app kanban init-db
+
+# run the app
+flask --app kanban run
+```
+then go to http://127.0.0.1:5000 on your browser
 
 ---
 
