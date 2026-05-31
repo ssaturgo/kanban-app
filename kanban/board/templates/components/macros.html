@@ -1,0 +1,21 @@
+{% macro task_card(data) %}
+    <div class="kb-task-wrapper" id="task-{{ data['id'] }}" data-task-id="{{ data['id'] }}" draggable="true">
+        {# TASK CARD #}
+        <div class="card rounded-3 shadow-sm kb-task">
+            <div class="card-header d-flex justify-content-between align-items-center border-0">
+                {# title #}
+                <h6 class="text-truncate m-0">{{ data['title'] }}</h6>
+
+                <button class="btn btn-link link-secondary p-0 btn-remove-task"
+                        data-task-id="{{ data['id'] }}">
+                    <i class="bi bi-trash"></i></button>
+            </div>
+            <div class="card-body pt-1">
+                {# description #}
+                <div class="card-text small text-muted text-wrap">
+                    {{ data['description'] }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
