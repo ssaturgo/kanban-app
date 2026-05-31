@@ -1,5 +1,5 @@
 # Kanban App - CS50x Final Project
-#### Video Demo:  <URL HERE>
+#### [Video Demo](https://youtu.be/KATm-NifRqs)
 #### Description:
 I chose to build this app as my final project for CS50x because I wanted an intuitive
 way to organize my thoughts and tasks ahead of me.
